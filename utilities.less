@@ -1,0 +1,314 @@
+.disabled(){
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
+
+
+// Link styles
+.link(@secondary_bright: @secondary_bright) {
+    display: inline-block;
+    color: @secondary_bright;
+    text-decoration: none;
+    border-bottom: 2px dashed @secondary_bright;
+    &:hover {
+        border-bottom: 2px solid @secondary_bright;
+    }
+    &.noDecoration {
+        border-bottom: none;
+        text-decoration: none;
+    }
+}
+
+// Shadow utilities
+.shadow(){
+    .md {
+        box-shadow: fade(@color, 20%) 0px 7px 29px 0px;
+    }
+    .sm {
+        box-shadow: fade(@color, 20%) 0px 2px 8px 0px;
+    }
+    .lg {
+        box-shadow: fade(@color, 20%) 0px 48px 100px 0px;
+    }
+    .outline {
+        .md {
+            box-shadow: fade(@color, 5%) 0px 6px 24px 0px, fade(@color, 20%) 0px 0px 0px 1px;
+        }
+        .sm {
+            box-shadow: fade(@color, 16%) 0px 1px 4px;
+        }
+        .lg {
+            box-shadow: fade(@color, 16%) 0px 10px 36px 0px, fade(@color, 6%) 0px 0px 0px 1px;
+        }
+    }
+}
+// Button styles
+.button(@secondary: @secondary) {
+    padding: .8rem 1.2rem;
+    background: fade(@secondary, 30%);
+    border: @thin_border solid @secondary;
+    border-radius: @radius_md;
+    color: @color;
+    font-size: 1rem;
+    cursor: pointer;
+    &:not(:disabled){
+        &:hover {
+            background: fade(@secondary, 10%);
+        }
+        &:active {
+            transform: scale(.96);
+        }
+        &:focus {
+            box-shadow: 0 0 0 .2rem fade(@secondary, 10%);
+            outline: none;
+        }
+    }
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
+// Box shadows
+.boxShadow(){
+    &:focus {
+        box-shadow: 0 0 0 4px fade(@color, 10%);
+        outline: none;
+    }
+    &:hover {
+        box-shadow: 0 0 0 2px fade(@color, 10%);
+    }
+    &:hover:focus {
+        box-shadow: 0 0 0 2px fade(@color, 10%),  0 0 0 4px fade(@color, 10%);
+    }
+}
+// Grid items
+.grid_item() {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: .8rem;
+    width: 100%;
+    border-radius: @radius_md;
+    overflow: hidden;
+    width: 10rem;
+    height: 10rem;
+    cursor: pointer;
+    background: @secondary;
+    img {
+        height: 100%;
+        opacity: .7;
+    }
+    &:active {transform: scale(.96);}
+    .shadow.md();
+    &:hover:not([disabled=true]) {
+        .shadow.lg();
+        transform: scale(1.05);
+        #title {
+            transform: scale(1.07);
+            font-weight: 900;
+            opacity: 0;
+            padding: .8rem;
+        }
+        background: transparent;
+        img {
+            opacity: 1;
+        }
+    }
+    
+    #background {
+       position: absolute;
+       inset: 0;
+       background: linear-gradient(30deg, @color, @secondary, @tertiary);
+       z-index: -1;
+    }
+    .svgFallback {
+        position: absolute;
+        top: 50%;
+        color: white;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 50%;
+    }
+    #title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        padding: .9rem;
+        display: flex;
+        align-items: flex-end;
+        color: white;
+        font-weight: 900;
+        background: linear-gradient(to bottom, #fff4, #0008);
+    }
+    #episodeDownload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: .3rem;
+        background: fade(@secondary, 40%);
+        padding: .1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: @radius_md;
+        color: lighten(@secondary, 50%);
+        border: 2px solid transparent;
+        cursor: pointer;
+        
+        svg {
+            width: 1.5rem;
+        }
+        &:hover {
+            border-color: fade(@secondary, 50%);
+        }
+        .disabled();
+    }
+}
+// List items
+.listItem(){
+    display: flex;
+    position: relative;
+    .width();
+    #itemImg {
+        flex: .7;
+        position: relative;
+        overflow: hidden;
+        object-fit: cover;
+        #background {
+            width: 100%;
+            height: 100%;
+            .grid_item#background();
+        };
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        svg {.grid_item.svgFallback()}
+    }
+    #text {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1rem;
+    }
+    overflow: hidden;
+    height: 6rem;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: @radius_md;
+    .shadow.sm();
+    &:hover:not([disabled=true]) {.shadow.md()}
+    #description {
+        height: 0;
+        overflow: hidden;
+        color: fade(@color, 80%);
+        margin-top: 5px;
+        a {
+            .link();
+        }
+    }
+    #text {
+        @flex: 4;
+        #title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: @color;
+            span {
+                //This makes the underlines fit the text
+                width: fit-content;
+                max-width: 80%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                .link(@color);
+                border-bottom-color: fade(@secondary, 30%);
+                &:hover {
+                    border-bottom-color: fade(@secondary, 40%)
+                }
+            }
+        }
+        flex: @flex;
+        max-width: 100% - (100% / @flex);
+        margin-left: 1rem;
+    }
+    button {
+        .grid_item#episodeDownload();
+        color: @color;
+        top: 50%;
+        right: .5rem;
+        transform: translateY(-60%);
+    }
+    &.open {
+        cursor: auto;
+        height: 13rem;
+        #text {
+            max-width: none !important;
+            color: @color !important;
+            &, & * {
+                color: inherit;
+            }
+        }
+        #title {
+            cursor: pointer;
+        }
+        button {
+            display: inline;
+            position: relative;
+            padding: 0;
+            width: fit-content;
+            height: fit-content;
+            margin: 0;
+            background: transparent;
+            border: none;
+            width: 3ch;
+            margin-left: .5rem;
+            transform: translateY(-50%);
+            svg {
+                width: 100%;
+                height: 100%;
+                &, & * {
+                    color: inherit;
+                }
+            }
+        }
+        #itemImg {
+            flex: 0;
+        }
+        #description {
+            height: 70%;
+            overflow-y: scroll;
+            padding-right: 1rem;
+            -webkit-mask-image: linear-gradient(to bottom, white 90%, transparent);
+        }
+    }
+}
+// Cover images
+.coverImg(){
+    width: 40vw;
+    max-width: 300px;
+    min-width: 150px;
+    margin-top: 2rem;
+    border-radius: @radius_md;
+}
+// Inputs
+.input(){
+    padding: .8rem 1rem;
+    border-radius: @radius_md;
+    border: @thin_border solid @color_bright;
+    &::placeholder {
+        color: fade(@color, 50%);
+    }
+    background: fade(@secondary, 4%);
+    .boxShadow()
+}
+// Max widths
+.width(){
+    width: 60vw;
+    max-width: 600px;
+}
