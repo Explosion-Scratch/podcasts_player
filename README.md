@@ -18,3 +18,6 @@ https://user-images.githubusercontent.com/61319150/161384469-230619ce-daa0-4338-
   - HTML and JavaScript
   - Vue.js - Provides a way to show reactive data based on a single app state
   - IndexedDB - Stores downloaded podcasts
+
+## Check out this lighthouse run 😎
+![image](https://user-images.githubusercontent.com/61319150/161387780-602046b1-e02f-42a5-98e2-15212f7c0f0f.png)
