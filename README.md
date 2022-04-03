@@ -1,11 +1,8 @@
 <h1 align=center>Podcasts player</h1>
 <hr>
-<img align=center src=https://github.com/Explosion-Scratch/podcasts_player/blob/main/big_img.png?raw=true alt="Banner Image"/>
+<div align=center><a href="https://explosion-scratch.github.io/podcasts_player"><img width="50%" src=https://github.com/Explosion-Scratch/podcasts_player/blob/main/big_img.png?raw=true alt="Banner Image"/></a></div>
+<div align=center><i><a href=https://user-images.githubusercontent.com/61319150/161384469-230619ce-daa0-4338-81bf-66fbebaaa478.mp4>Recording</a> – <a href=https://explosion-scratch.github.io/podcasts_player>Try it</a></i></div>
 <hr>
-
-## Demo: 
-
-https://user-images.githubusercontent.com/61319150/161384469-230619ce-daa0-4338-81bf-66fbebaaa478.mp4
 
 ### 🚀 Features:
   -  💾 Download easily
