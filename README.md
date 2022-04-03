@@ -1,4 +1,8 @@
-<h1 align=center>Podcasts player</h1>
+<h1 align=center>
+  <img src=https://api.iconify.design/ph:microphone-stage-light.svg?color=currentColor height="25ch">
+  Podcasts player
+  <img src=https://api.iconify.design/ph:microphone-stage-light.svg?color=currentColor height="25ch">
+</h1>
 <hr>
 <div align=center>
   <a href="https://explosion-scratch.github.io/podcasts_player"><img width="50%" src=https://github.com/Explosion-Scratch/podcasts_player/blob/main/big_img.png?raw=true alt="Banner Image"/></a>
