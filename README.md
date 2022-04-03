@@ -4,7 +4,7 @@
 <div align=center><i><a href=https://user-images.githubusercontent.com/61319150/161384469-230619ce-daa0-4338-81bf-66fbebaaa478.mp4>Recording</a> – <a href=https://explosion-scratch.github.io/podcasts_player>Try it</a></i></div>
 <hr>
 
-### 🚀 Features:
+## 🚀 Features:
   -  💾 Download easily
   -  🖼️ Automatically adds metadata
   -  🤐 Zip files with one click and view progress
